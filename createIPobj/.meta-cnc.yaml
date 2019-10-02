@@ -29,7 +29,7 @@ labels:
 variables:
   - name: customer_ip_addr_netmask
     description: New Customer IP Address
-    default: x.x.x.x
+    default: x.x.x.x/y
     type_hint: text
   - name: customer_ip_obj_name
     description: New Customer IP Object Name
