@@ -27,13 +27,12 @@ labels:
 # type_hint defines the form field used by panhandler
 # type_hints can be text, ip_address, or dropdown
 variables:
-  - name: customer_ip_addr_netmask
-    description: New Customer IP Address
-    default: x.x.x.x/y
-    type_hint: text
   - name: customer_ip_obj_name
     description: New Customer IP Object Name
     default: NewCustomerName
+  - name: customer_ip_addr_netmask
+    description: New Customer IP Address
+    default: x.x.x.x/y
     type_hint: text
   - name: customer_name
     description: New Customer Name
