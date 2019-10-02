@@ -1,0 +1,76 @@
+# skillet preamble information used by panhandler
+# ---------------------------------------------------------------------
+# unique snippet name
+name: createIPobj
+# label used for menu selection
+label: New Customer IP-Tag
+description: Creates a new customer IP Object and assigns a TAG
+
+# type of device configuration
+# common types are panorama, panos, and template
+# https://github.com/PaloAltoNetworks/panhandler/blob/develop/docs/metadata_configuration.rst
+type: panos
+# preload static or default-based templates
+extends:
+
+# grouping of like snippets for dynamic menu creation in panhandler
+labels:
+  collection:
+    - skilletbuilder
+
+# ---------------------------------------------------------------------
+# end of preamble section
+
+# variables section
+# ---------------------------------------------------------------------
+# variables used in the configuration templates
+# type_hint defines the form field used by panhandler
+# type_hints can be text, ip_address, or dropdown
+variables:
+  - name: customer_ip_addr_netmask
+    description: New Customer IP Address
+    default: x.x.x.x
+    type_hint: text
+  - name: customer_ip_obj_name
+    description: New Customer IP Object Name
+    default: NewCustomerName
+    type_hint: text
+  - name: customer_name
+    description: New Customer Name
+    default: NewCustomerName
+    type_hint: text
+  - name: tag_name
+    description: New Customer Tag Name
+    default: TagName
+    type_hint: text
+  - name: tag_color
+    description: sample dropdown list
+    default: orange
+    type_hint: dropdown
+    dd_list:
+      - key: blue
+        value: color3
+      - key: orange
+        value: color6
+      - key: red
+        value: color1
+
+# ---------------------------------------------------------------------
+# end of variables section
+
+# snippets section
+# ---------------------------------------------------------------------
+# snippets used for api configuration including xpath and element as file name
+# files will load in the order listed
+snippets:
+  - name: IP_Object
+    xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/address
+    file: ipobj.xml
+  - name: Tag
+    xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/tag
+    file: tag.xml
+
+# ---------------------------------------------------------------------
+# end of snippets section 
+
+
