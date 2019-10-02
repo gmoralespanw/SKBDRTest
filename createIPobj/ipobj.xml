@@ -1,5 +1,5 @@
 <entry name="{{ customer_ip_obj_name }}">
-        <ip-netmask>{{ customer_ip_addr_netnask }}</ip-netmask>
+        <ip-netmask>{{ customer_ip_addr_netmask }}</ip-netmask>
         <tag>
           <member>{{ tag_name }}</member>
         </tag>
